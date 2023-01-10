@@ -1,8 +1,14 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { setFilterContacts } from 'redux/fileterSlice';
 
 import { FilterTitle, FilterForm, Label, Input } from './Filter.styled';
 
-export const Filter = ({ title, doesFiltration }) => {
+export const Filter = ({ title }) => {
+  const dispatch = useDispatch();
+
+  const handleFilter = event => {
+    dispatch(setFilterContacts(event.target.value));
+  };
   return (
     <>
       <FilterTitle>{title} </FilterTitle>
@@ -11,7 +17,7 @@ export const Filter = ({ title, doesFiltration }) => {
         <Label htmlFor="name">
           Name
           <Input
-            onChange={doesFiltration}
+            onChange={handleFilter}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -22,7 +28,4 @@ export const Filter = ({ title, doesFiltration }) => {
       </FilterForm>
     </>
   );
-};
-Filter.propTypes = {
-  doesFiltration: PropTypes.func.isRequired,
 };

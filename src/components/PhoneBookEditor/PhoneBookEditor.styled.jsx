@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
 
-export const PhoneBookForm = styled(Form)`
+export const PhoneBookForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@ export const Label = styled.label`
   margin-bottom: 20px;
 `;
 
-export const Input = styled(Field)`
+export const Input = styled.input`
   width: 300px;
   margin-top: 5px;
 `;
