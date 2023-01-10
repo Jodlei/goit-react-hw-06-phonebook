@@ -25,10 +25,10 @@ const rootReducer = combineReducers({
   filter: filterReducer,
 });
 
-export const persisedtReducer = persistReducer(persistConfig, rootReducer);
+export const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persisedtReducer,
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
